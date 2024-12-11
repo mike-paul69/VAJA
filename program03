@@ -1,0 +1,46 @@
+Program 3: A class called Employee, which models an employee with an ID, name and
+salary, is designed as shown in the following class diagram. The method raiseSalary
+(percent) increases the salary by the given percentage. Develop the Employee class and
+suitable main method for demonstration
+package employee;
+import java.util.Scanner;
+class employee_Sal_Inc
+{
+private int id;
+private String name;
+private double salary;
+public employee_Sal_Inc(int id, String name, double salary)
+{
+ this.id = id;
+ this.name = name;
+ this.salary = salary;
+}
+public void raiseSalary(double percent)
+{
+ salary += salary * percent / 100;
+}
+@Override
+public String toString()
+{
+// return "details = " + id + name + salary ;
+ return "Employee{" + "id=" + id + ", name='" + name + '\'' +
+", salary=" + salary + '}';
+}
+}
+class Employee_main
+{
+public static void main(String[] args)
+{
+employee_Sal_Inc employee = new employee_Sal_Inc(1,
+"John", 50000);
+System.out.println("Employee before salary increase: " +
+employee);
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter the percentage increment for
+the employee:");
+employee.raiseSalary(sc.nextDouble());
+System.out.println("Employee after salary increase: " +
+employee);
+sc.close();
+}
+} 
