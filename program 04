@@ -1,0 +1,67 @@
+package lab.stack;
+public class My_Point
+{
+ private int x;
+ private int y;
+ // Constructor with parameters
+ public My_Point(int i, int j)
+ {
+ this.x = i; // Assign parameters i and j to instance variables
+ this.y = j;
+ }
+ // Default constructor
+ public My_Point() {
+ this(0, 0); // Call the parameterized constructor
+ }
+ // Method to set x and y
+ public void setXY(int x, int y)
+ {
+ this.x = x;
+ this.y = y;
+ }
+ // Method to get x and y as an array
+ public int[] getXY()
+ {
+ int[] xy = new int[2];
+ xy[0] = x;
+ xy[1] = y;
+ return xy;
+ }
+ // Override toString method
+ @Override
+ public String toString() {
+ return "(" + x + ", " + y + ")";
+ }
+ // Calculate distance to another point (x, y)
+ public double distance(int x, int y) {
+ return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
+ }
+ // Calculate distance to another My_Point object
+ public double distance(My_Point another) {
+ return Math.sqrt(Math.pow(this.x - another.x, 2) + Math.pow(this.y - another.y, 2));
+ }
+ // Calculate distance from the origin (0,0)
+ public double distance()
+ {
+ return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+ }
+}
+// Main class
+class My_Point_main
+{
+ public static void main(String[] args)
+ {
+ My_Point p1 = new My_Point();
+ System.out.println(p1); // (0, 0)
+ My_Point p2 = new My_Point(3, 4);
+ System.out.println(p2); // (3, 4)
+ p1.setXY(5, 6);
+ System.out.println(p1); // (5, 6)
+ int[] xy = p1.getXY();
+ System.out.println(xy[0]); // 5
+ System.out.println(xy[1]); // 6
+ System.out.println(p1.distance(2, 3)); // Distance from (5,6) to (2,3)
+ System.out.println(p1.distance(p2)); // Distance from (5,6) to (3,4)
+ System.out.println(p1.distance()); // Distance from (5,6) to origin
+ }
+}
