@@ -1,0 +1,90 @@
+Program 2. Develop a stack class to hold a maximum of 10 integers with suitable methods. Develop a JAVA
+main method to illustrate Stack operations.
+package lab.stack;
+public class Stack_Operations
+{
+  private int[] stack; // Array to store the stack elements
+  private int top; // Keeps track of the top element in the stack
+  private int maxSize; // Maximum size of the stack
+   // Constructor to initialize stack size and top position
+     public Stack_Operations(int maxSize)
+ { // The constructor name now matches the class name
+ this.maxSize = maxSize;
+ stack = new int[maxSize]; // Create stack array with specified max size
+ top = -1; // Stack is empty initially (top is -1)
+ }
+ // Method to push an item onto the stack
+ public void push(int item)
+ {
+ if (!isFull())
+ {
+ stack[++top] = item; // Increment top and add item to the stack
+ System.out.println(item + " pushed onto stack.");
+ } else {
+ System.out.println("Stack is full");
+ }
+ }
+ // Method to pop an item from the stack
+ public int pop()
+ {
+ if (!isEmpty())
+ {
+ int poppedItem = stack[top--]; // Return the top item and decrement the top
+ System.out.println(poppedItem + " popped from stack.");
+ return poppedItem;
+ }
+ else
+ {
+ System.out.println("Stack is empty");
+ return -1; // Return -1 if stack is empty
+ }
+ }
+ // Check if stack is empty
+ public boolean isEmpty()
+ {
+ return top == -1;
+ }
+ // Check if stack is full
+ public boolean isFull()
+ {
+ return top == maxSize - 1;
+ }
+ // Print all elements in the stack
+ public void printStack()
+ {
+ if (isEmpty())
+ {
+ System.out.println("Stack is empty");
+ }
+ else
+ {
+ System.out.print("Stack elements: ");
+ for (int i = 0; i <= top; i++) {
+ System.out.print(stack[i] + " ");
+ }
+ System.out.println();
+ }
+ }
+ // Main method to demonstrate stack operations
+ public static void main(String[] args)
+ {
+ Stack_Operations stack = new Stack_Operations(10); // Create a stack with size 10
+ // Pushing integers onto the stack
+ System.out.println("Pushing integers onto the stack:");
+ for (int i = 0; i < 10; i++)
+ {
+ stack.push(i);
+ }
+ // Print stack after pushing
+ System.out.println("Stack after pushing:");
+ stack.printStack();
+ // Popping integers off the stack
+ System.out.println("Popping integers off the stack:");
+ for (int i = 0; i < 5; i++)
+ {
+ stack.pop();
+ System.out.println("Stack after pop:");
+ stack.printStack();
+ }
+ }
+}
