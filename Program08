@@ -1,0 +1,32 @@
+Program:8 Develop a JAVA program to create an outer class with a function display. Create another class inside the
+outer class named inner with a function called display and call the two functions in the main class.
+Aim: Demonstrate the inheritance along with interface in java programming.
+package lab.stack;
+public class OuterInner
+{
+public void display()
+{
+ System.out.println("Outer class display method:");
+ System.out.println("In Java, first outer class will execute...");
+ }
+ // Inner class declaration
+ class Inner
+ {
+ public void display()
+ {
+ System.out.println("Inner class display method:");
+ System.out.println("After outer class, inner class will execute...");
+ }
+ }
+ // Main method
+ public static void main(String[] args)
+ {
+ // Creating an instance of the outer class
+ OuterInner outer = new OuterInner();
+ outer.display();
+
+ // Creating an instance of the inner class
+ OuterInner.Inner inner = outer.new Inner();
+ inner.display();
+ }
+}
