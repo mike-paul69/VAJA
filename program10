@@ -1,0 +1,32 @@
+Program:10. Develop a JAVA program to create a package named mypack and import & implement it in a
+suitable class. Aim: Demonstrate the IO Package using java programming.
+Mypackage_interface.java
+public interface Mypackage_interface {
+ void display(); // Declare a method display()
+}
+MyClass.java
+package mypack;
+public class MyClass implements Mypackage_interface {
+
+ // Implement the display() method
+ @Override
+ public void display() {
+ System.out.println("Hello!");
+ System.out.println("Hi...");
+ System.out.println("You -)");
+ System.out.println("Yes, You..");
+ System.out.println("Hello, You only.");
+ System.out.println("This is the result -)-)-)");
+ }
+}
+Mypack_main.java
+import mypack.MyClass; // Import MyClass from the package mypack
+public class Mypack_main {
+ public static void main(String[] args) {
+ // Create an object of MyClass
+ MyClass obj = new MyClass();
+
+ // Call the display() method of MyClass
+ obj.display();
+ }
+}
